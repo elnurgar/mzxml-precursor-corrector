@@ -51,7 +51,7 @@ def best_score_finder(ms1_array, precursor_mz_score, scan_number: int):
     # ajout de la colonne sur array
     ms1_array = np.hstack((ms1_array, error_column))
     # calcul de score
-    score_column = (np.log2(column2)) / error_column
+    score_column = np.log2(column2) / error_column
     # ajout de colonne de score sur array
     score_array = np.hstack((ms1_array, score_column))
 
