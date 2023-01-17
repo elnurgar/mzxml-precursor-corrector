@@ -1,1 +1,30 @@
-##Precursor corrector for mzXML
+## Precursor corrector for mzXML
+La logique est suivante :
+
+Pour chaque scan MS2 :
+
+On récupère le chiffre de précurseur de mzXML original.
+On récupère le spectre MS1 qui précède les scans MS2 sous forme d’un tableau mz/intensités
+Pour chaque mz sur le spectre MS1 on calcule l’erreur en ppm par rapport à précurseur (50.0001, 50.0100, 50.0200 …. 1200.0010, 1200.0020)
+On calcule le « score » par le rapport de log de l’intensité avec la base 2 sur l’erreur
+On trie les lignes par score de plus haut vers le plus bas
+On enlève les lignes avec erreur > 1000 ppm
+On récupère les top 10
+On trie ces 10 éléments par l’intensité de plus haute vers la plus basse
+On garde les top 3
+On trie de nouveau par score de plus haut vers le plus bas
+On retient le premier élément comme la bonne valeur du précurseur
+ 
+
+A l’issue de travail le script génère 3 fichiers :
+
+Fichier mzXML se terminant par _modified.mzXML pour chaque analyse avec les bonnes valeurs de précurseur
+Fichier csv pour chaque analyse avec un tableau : le numéro de scan MS1, le numéro de scan MS2, l’ancienne valeur de précurseur, la nouvelle valeur de précurseur, score, erreur en ppm, et rank. Rank, c’est la position de cet ion dans le tableau d’intensité, soit la nouvelle valeur de précurseur est Xème ion le plus intense sur le spectre MS1.
+
+ 
+
+Un seul fichier log.txt avec le nom de l’analyse, le scan avec l’erreur la plus importante, et le scan avec le rank le plus élevé. Par exemple, si vous avez une analyse dont un scan a une erreur de 900 ppm, ça vaut le coup de vérifier si le précurseur est bien sélectionné.
+
+ 
+
+Il fonctionne avec les données 32 et 64 bit.
