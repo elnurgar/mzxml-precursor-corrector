@@ -1,7 +1,7 @@
 # Precursor corrector for mzXML
 ## Problem
 In Data-Dependent Analysis on some high resolution mass spectrometry instruments, the precursor ion m/z value doesn't perfectly correspond to the ion from MS1 spectra retained for the fragmentation.
-As shown in this exemple:
+As shown in this example:
 ![This is an image](/doc/MS1.PNG)
 ![This is an image](/doc/MS1_zoom.PNG)
 
