@@ -24,7 +24,7 @@ Bruker Impact II - 50-70 ppm
 This script will fix the precursor values in mzXML files. Works with mzXML 2.1 and 3.2
 
 The steps to fix the problem are:
-1) Put the executable in the same folder with mzXML files to be fixed.
+1) Put the executable`, that you can download by https://github.com/elnurgar/mzxml-precursor-corrector/releases/ in the same folder with mzXML files to be fixed.
 ![Step1](/doc/Step1.PNG)
 
 2) Run it
