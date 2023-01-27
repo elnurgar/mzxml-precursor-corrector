@@ -12,13 +12,13 @@ When we look the values of precursor ions in mzXML file for the next scans here 
 
 The value for 332.2201 is 332.2430, for 337.1059 is 337.1240 and for 843.3971 is 843.5640, either 69, 54 and 198 ppm error. For some scans the error can achieve 500 ppm.
 
-##The instruments concerned
+##Instruments concerned
 The instruments where this problem is observed are:
 Water Synapt G2Si - 50-800 ppm
 Bruker Impact II - 50-70 ppm
 
 
-##The solution
+##Solution
 This script will fix the precursor values in mzXML files. Works with mzXML 2.1 and 3.0 (32 and 64 bit)
 
 The steps to fix the problem are:
@@ -47,32 +47,11 @@ The rank means that this ion is the nth ion the most intense of MS1 spectra.
 8) For all files, fixed in the same batch one file log.txt is generated with the file name, and correspoding scan number with the highest error and highest rank.
 ![Step8](/doc/Step7.PNG)
 
-La logique est suivante :
+##Citation
+If you use this script please cite : Breaud, C.; Lallemand, L.; Mares, G.; Mabrouki, F.; Bertolotti, M.; Simmler, C.; Greff, S.; Mauduit, M.; Herbette, G.; Garayev, E.; Lavergne, C.; Cesari, M.; Bun-Llopet, S.-S.; Baghdikian, B.; Garayev, E. LC-MS Based Phytochemical Profiling towards the Identification of Antioxidant Markers in Some Endemic Aloe Species from Mascarene Islands. Antioxidants 2023, 12, 50. https://doi.org/10.3390/antiox12010050
 
-Pour chaque scan MS2 :
+##Contribution
+All the contributions are welcome. Feel free to contact: elnur.garayev@univ-amu.fr
 
-On récupère le chiffre de précurseur de mzXML original.
-On récupère le spectre MS1 qui précède les scans MS2 sous forme d’un tableau mz/intensités
-Pour chaque mz sur le spectre MS1 on calcule l’erreur en ppm par rapport à précurseur (50.0001, 50.0100, 50.0200 …. 1200.0010, 1200.0020)
-On calcule le « score » par le rapport de log de l’intensité avec la base 2 sur l’erreur
-On trie les lignes par score de plus haut vers le plus bas
-On enlève les lignes avec erreur > 1000 ppm
-On récupère les top 10
-On trie ces 10 éléments par l’intensité de plus haute vers la plus basse
-On garde les top 3
-On trie de nouveau par score de plus haut vers le plus bas
-On retient le premier élément comme la bonne valeur du précurseur
- 
-
-A l’issue de travail le script génère 3 fichiers :
-
-Fichier mzXML se terminant par _modified.mzXML pour chaque analyse avec les bonnes valeurs de précurseur
-Fichier csv pour chaque analyse avec un tableau : le numéro de scan MS1, le numéro de scan MS2, l’ancienne valeur de précurseur, la nouvelle valeur de précurseur, score, erreur en ppm, et rank. Rank, c’est la position de cet ion dans le tableau d’intensité, soit la nouvelle valeur de précurseur est Xème ion le plus intense sur le spectre MS1.
-
- 
-
-Un seul fichier log.txt avec le nom de l’analyse, le scan avec l’erreur la plus importante, et le scan avec le rank le plus élevé. Par exemple, si vous avez une analyse dont un scan a une erreur de 900 ppm, ça vaut le coup de vérifier si le précurseur est bien sélectionné.
-
- 
-
-Il fonctionne avec les données 32 et 64 bit.
+##License
+MIT License
