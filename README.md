@@ -25,7 +25,7 @@ This script will fix the precursor values in mzXML files. Works with mzXML 2.1 a
 
 The steps to fix the problem are:
 1) Put the executable, that you can download at https://github.com/elnurgar/mzxml-precursor-corrector/releases/, in the same folder with mzXML files to be fixed.
-
+![Step1](/doc/Step01.PNG)
 
 2) Run it
 3) The Waters Sypant G2Si injects every 80 scans a lock mass, reference mix. Therefore, the MS1 scans of lock mass will be ignored, as the don't come from the sample. If your machine has MS1 scans only with lock mass, you can list them in this step. Therefore, the MS1 scans with this ions as the most abundant will not be retained. 
