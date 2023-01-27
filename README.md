@@ -12,10 +12,13 @@ When we look the values of precursor ions in mzXML file for the next scans here 
 
 The value for 332.2201 is 332.2430, for 337.1059 is 337.1240 and for 843.3971 is 843.5640, either 69, 54 and 198 ppm error. For some scans the error can achieve 500 ppm.
 
+##The instruments concerned
 The instruments where this problem is observed are:
 Water Synapt G2Si - 50-800 ppm
 Bruker Impact II - 50-70 ppm
 
+
+##The solution
 This script will fix the precursor values in mzXML files. Works with mzXML 2.1 and 3.0 (32 and 64 bit)
 
 The steps to fix the problem are:
