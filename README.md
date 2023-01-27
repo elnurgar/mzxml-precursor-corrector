@@ -39,7 +39,7 @@ If your machine doesn't have MS1 scans with lock mass just type 0.
 ![Step5](/doc/Step4.PNG)
 
 6) The script will generate new  _modified mzXML with with fixed precursor m/z values.
-![Step6](/doc/Step5.PNG)
+![Step6](/doc/Step05.PNG)
 
 7) At the same time for each mzXML file the script will generate a csv file with MS1 scan number, MS2 scan number, MS2 precursor old m/z value, MS2 precursor new m/z value, Score and Rank
 ![Step7](/doc/Step6.PNG)
