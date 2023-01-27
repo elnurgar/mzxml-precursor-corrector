@@ -47,6 +47,9 @@ The rank means that this ion is the nth ion the most intense of MS1 spectra.
 8) For all files, fixed in the same batch one file log.txt is generated with the file name, and correspoding scan number with the highest error and highest rank.
 ![Step8](/doc/Step7.PNG)
 
+9) Check it. All the values are fixed.
+![Step9](/doc/MS2_OK.PNG)
+
 ##Citation
 If you use this script please cite : Breaud, C.; Lallemand, L.; Mares, G.; Mabrouki, F.; Bertolotti, M.; Simmler, C.; Greff, S.; Mauduit, M.; Herbette, G.; Garayev, E.; Lavergne, C.; Cesari, M.; Bun-Llopet, S.-S.; Baghdikian, B.; Garayev, E. LC-MS Based Phytochemical Profiling towards the Identification of Antioxidant Markers in Some Endemic Aloe Species from Mascarene Islands. Antioxidants 2023, 12, 50. https://doi.org/10.3390/antiox12010050
 
