@@ -160,7 +160,7 @@ lock_mass = input(
 if lock_mass == "":
     lock_mass = [554.2615, 556.2771]
 else:
-    [x.strip() for x in lock_mass.split(',')]
+    lock_mass = [x.strip() for x in lock_mass.split(',')]
 print("Here are the files I have found:")
 print(*results, sep="\n")
 ask = input("Do you want to continue? Y or N : ")
