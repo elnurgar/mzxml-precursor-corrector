@@ -3,7 +3,6 @@ from tqdm import tqdm
 from score_finder import best_score_finder
 
 
-#TODO find the error first in this script
 def ms_data_processor(filename, ms1_scan_no, filetype:str):
     ms_data = ms1_and_ms2_extractor(filename, ms1_scan_no, filetype)
     ms1_data = ms_data[0]
