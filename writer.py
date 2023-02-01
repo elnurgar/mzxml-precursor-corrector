@@ -1,7 +1,6 @@
 from tqdm import tqdm
 import re
 
-#TODO format the writer for mzML
 log = [f'Filename,Scan number,Highest error,Scan number,Highest rank in MS1 spectra\n']
 def file_writer(filename, line_list, ms2_data, filetype:str):
     log.append(f'{filename},{ms2_data[1][0]},{ms2_data[1][1]},{ms2_data[2][0]},{ms2_data[2][1]}\n')
