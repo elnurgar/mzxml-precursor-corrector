@@ -26,30 +26,30 @@ This script will fix the precursor values in mzXML files. Works with mzXML 2.1 a
 The steps to fix the problem are:
 1) Put the executable, that you can download at https://github.com/elnurgar/mzxml-precursor-corrector/releases/, in the same folder with mzXML files to be fixed.
 
-![Step1](/doc/Step01.PNG)
+![Step1](/doc/Step001.PNG)
 
 2) Run it
 3) The Waters Sypant G2Si injects every 80 scans a lock mass, reference mix. Therefore, the MS1 scans of lock mass will be ignored, as the don't come from the sample. If your machine has MS1 scans only with lock mass, you can list them in this step. Therefore, the MS1 scans with this ions as the most abundant will not be retained. 
 If your machine doesn't have MS1 scans with lock mass just press Enter. For Waters with lock mass type 554.2615, 556.2771
-![Step3](/doc/Step2.PNG)
+![Step3](/doc/Step02.PNG)
 
 4) The script will list mzXML file to fix. If you are ok type Y.
-![Step4](/doc/Step3.PNG)
+![Step4](/doc/Step03.PNG)
 
 5) The script will fix mzXML data file after file.
-![Step5](/doc/Step4.PNG)
+![Step5](/doc/Step04.PNG)
 
 6) The script will generate new  _modified mzXML with with fixed precursor m/z values.
-![Step6](/doc/Step05.PNG)
+![Step6](/doc/Step005.PNG)
 
 7) At the same time for each mzXML file the script will generate a csv file with MS1 scan number, MS2 scan number, MS2 precursor old m/z value, MS2 precursor new m/z value, Score and Rank
-![Step7](/doc/Step6.PNG)
+![Step7](/doc/Step06.PNG)
 
 Score is calculated by division of log2 of intensity value on the error in ppm
 The rank means that this ion is the nth ion the most intense of MS1 spectra. 
 
 8) For all files, fixed in the same batch one file log.txt is generated with the file name, and correspoding scan number with the highest error and highest rank.
-![Step8](/doc/Step7.PNG)
+![Step8](/doc/Step07.PNG)
 
 9) Check it. All the values are fixed.
 ![Step9](/doc/MS2_OK.PNG)
