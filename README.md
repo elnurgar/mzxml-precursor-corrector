@@ -33,22 +33,22 @@ The steps to fix the problem are:
 If your machine doesn't have MS1 scans with lock mass just press Enter. For Waters with lock mass type 554.2615, 556.2771
 ![Step3](/doc/Step02.PNG)
 
-4) The script will list mzXML file to fix. If you are ok type Y.
+4) The script will list mzXML and mzML files to fix. If you are ok type Y.
 ![Step4](/doc/Step03.PNG)
 
-5) The script will fix mzXML data file after file.
+5) The script will fix mzXML or mzML data file after file.
 ![Step5](/doc/Step04.PNG)
 
-6) The script will generate new  _modified mzXML with with fixed precursor m/z values.
+6) The script will generate new  _modified mzXML or _modified mzML with with fixed precursor m/z values.
 ![Step6](/doc/Step005.PNG)
 
-7) At the same time for each mzXML file the script will generate a csv file with MS1 scan number, MS2 scan number, MS2 precursor old m/z value, MS2 precursor new m/z value, Score and Rank
+7) At the same time for each mzXML or mzML file the script will generate a csv file with MS1 scan number, MS2 scan number, MS2 precursor old m/z value, MS2 precursor new m/z value, Score and Rank
 ![Step7](/doc/Step06.PNG)
 
 Score is calculated by division of log2 of intensity value on the error in ppm
 The rank means that this ion is the nth ion the most intense of MS1 spectra. 
 
-8) For all files, fixed in the same batch one file log.txt is generated with the file name, and correspoding scan number with the highest error and highest rank.
+8) For all files, fixed in the same batch one file log.csv is generated with the file name, and correspoding scan number with the highest error and highest rank.
 ![Step8](/doc/Step07.PNG)
 
 9) Check it. All the values are fixed.
