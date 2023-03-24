@@ -3,7 +3,8 @@ from tqdm import tqdm
 from score_finder import best_score_finder
 
 
-def ms_data_processor(filename, ms1_scan_no, filetype:str):
+#TODO find the error first in this script
+def ms_data_processor(filename, ms1_scan_no, filetype:str, maximal_error:int):
     ms_data = ms1_and_ms2_extractor(filename, ms1_scan_no, filetype)
     ms1_data = ms_data[0]
     ms2_data = ms_data[1]
@@ -28,7 +29,7 @@ def ms_data_processor(filename, ms1_scan_no, filetype:str):
 
         elif str(i) in ms2_data.keys():
             ms1_scan_no = lock_mass_ms1[-1]
-            result = best_score_finder(ms1_data[ms1_scan_no], ms2_data[str(i)], i)
+            result = best_score_finder(ms1_data[ms1_scan_no], ms2_data[str(i)], i, maximal_error)
             with open(f'{filename[:-6]}.csv', 'a', encoding='utf-8') as file:
                 file.write(
                     f'{ms1_scan_no},{i},{ms2_data[str(i)]},{result[0]},{result[1]},{result[2]:.2f},{result[3]}\n')
@@ -36,8 +37,7 @@ def ms_data_processor(filename, ms1_scan_no, filetype:str):
                 ms2_error[i] = result[2]
                 ms2_rank[i] = result[3]
         else:
-            break
-
+            continue
     highest_error = (max(ms2_error, key=ms2_error.get), ms2_error[max(ms2_error, key=ms2_error.get)])
     highest_rank = (max(ms2_rank, key=ms2_rank.get), ms2_rank[max(ms2_rank, key=ms2_rank.get)])
     # returns dictionnary{scannum:bon mz}, error, rank
