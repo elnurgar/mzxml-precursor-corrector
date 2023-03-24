@@ -26,7 +26,15 @@ if __name__ == "__main__":
         lock_mass = [0]
     else:
         lock_mass = [x.strip() for x in lock_mass.split(',')]
-
+    maximal_error = input(
+        "Please, insert the maximal error between precursor m/z and the ion in ms1 data. Press Enter if you don't know what to do and you want to keep the default value 1000 ppm.):")
+    if maximal_error == "":
+        maximal_error = 1000
+    else:
+        if maximal_error.isnumeric():
+            maximal_error = int(maximal_error.strip())
+        else:
+            print("Please type only numbers for the maximal error value")
     print("Here are the files I have found:")
     print(*results, sep="\n")
     ask = input("Do you want to continue? Y or N : ")
@@ -50,11 +58,11 @@ if __name__ == "__main__":
                     print("Treating " + filename)
                     if 'MZXML' in filename.upper():
                         line_list = slicer(filename)
-                        ms2_data = ms_data_processor(filename, lock_mass, 'mzxml')
+                        ms2_data = ms_data_processor(filename, lock_mass, 'mzxml', maximal_error)
                         log = file_writer(filename, line_list, ms2_data, 'mzxml')
                     elif 'MZML' in filename.upper():
                         line_list = slicer(filename)
-                        ms2_data = ms_data_processor(filename, lock_mass, 'mzml')
+                        ms2_data = ms_data_processor(filename, lock_mass, 'mzml', maximal_error)
                         log = file_writer(filename, line_list, ms2_data, 'mzml')
             elif ask2.upper() == "N":
                 print("I understand, I don't touch them.")
@@ -65,11 +73,11 @@ if __name__ == "__main__":
                 print("Treating " + filename)
                 if 'MZXML' in filename.upper():
                     line_list = slicer(filename)
-                    ms2_data = ms_data_processor(filename, lock_mass, 'mzxml')
+                    ms2_data = ms_data_processor(filename, lock_mass, 'mzxml', maximal_error)
                     log = file_writer(filename, line_list, ms2_data, 'mzxml')
                 elif 'MZML' in filename.upper():
                     line_list = slicer(filename)
-                    ms2_data = ms_data_processor(filename, lock_mass, 'mzml')
+                    ms2_data = ms_data_processor(filename, lock_mass, 'mzml', maximal_error)
                     log = file_writer(filename, line_list, ms2_data, 'mzml')
         with open("log.csv", "w") as logfile:
             for item in log:
