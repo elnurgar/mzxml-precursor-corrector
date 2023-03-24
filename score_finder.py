@@ -1,6 +1,6 @@
 import numpy as np
 
-def best_score_finder(ms1_array, precursor_mz_score, scan_number: int):
+def best_score_finder(ms1_array, precursor_mz_score, scan_number: int, maximal_error:int):
     precursor_mz = float(precursor_mz_score)
     #supprimer les lignes avec intensité 0
     ms1_array = ms1_array[((ms1_array[:,1] != 0))]
@@ -20,12 +20,12 @@ def best_score_finder(ms1_array, precursor_mz_score, scan_number: int):
 
     score_array = np.flip(score_array[score_array[:, 3].argsort()], axis=0)
     # Toute erreur > 1000 est eliminé
-    new_score_array = score_array[((score_array[:, 2] < 1000))]
+    new_score_array = score_array[((score_array[:, 2] < maximal_error))]
     if len(new_score_array) > 0:
         new_score_array = new_score_array[:10, :]
     else:
         new_score_array = score_array
-        print(f"ATTENTION, SCAN NUMBER {scan_number} HAS AN ERROR MORE THAN 1000 PPM!!!")
+        print(f"ATTENTION, SCAN NUMBER {scan_number} HAS AN ERROR MORE THAN {maximal_error} PPM!!!")
 
     # trier par intensité de plus haut vers plus bas. celui en 3ère positions seront retenus pour la suite
     new_score_array = np.flip(new_score_array[new_score_array[:, 1].argsort()], axis=0)
