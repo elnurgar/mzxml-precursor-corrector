@@ -30,7 +30,7 @@ The steps to fix the problem are:
 
 2) Run it
 3) The Waters Sypant G2Si injects every 80 scans a lock mass, reference mix. Therefore, the MS1 scans of lock mass will be ignored, as the don't come from the sample. If your machine has MS1 scans only with lock mass, you can list them in this step. Therefore, the MS1 scans with this ions as the most abundant will not be retained. 
-If your machine doesn't have MS1 scans with lock mass just press Enter. For Waters with lock mass type 554.2615, 556.2771
+If your machine doesn't have MS1 scans with lock mass just press Enter. For Waters with lock mass type 554.2615 for negative mode or 556.2771 for positive mode data.
 ![Step3](/doc/Step02.PNG)
 
 4) The script will list mzXML and mzML files to fix. If you are ok type Y.
