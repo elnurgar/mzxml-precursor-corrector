@@ -1,6 +1,7 @@
 from ms_extractor import ms1_and_ms2_extractor
 from tqdm import tqdm
 from score_finder import best_score_finder
+import sys
 
 
 #TODO find the error first in this script
@@ -8,6 +9,9 @@ def ms_data_processor(filename, ms1_scan_no, filetype:str, maximal_error:int):
     ms_data = ms1_and_ms2_extractor(filename, ms1_scan_no, filetype)
     ms1_data = ms_data[0]
     ms2_data = ms_data[1]
+    if len(ms2_data)== 0:
+        print(f"Your data file {filename} doesn't contain MS2 data. Remove this file and relaunch the script.")
+        sys.exit()
     ms1scans_lock_mass_list = ms_data[3]
     ms1_scans_list = ms_data[4]
     ms2_error = {}
@@ -42,4 +46,3 @@ def ms_data_processor(filename, ms1_scan_no, filetype:str, maximal_error:int):
     highest_rank = (max(ms2_rank, key=ms2_rank.get), ms2_rank[max(ms2_rank, key=ms2_rank.get)])
     # returns dictionnary{scannum:bon mz}, error, rank
     return ms2_result, highest_error, highest_rank, ms_data[0]
-
