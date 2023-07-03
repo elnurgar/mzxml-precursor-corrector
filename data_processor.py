@@ -24,7 +24,8 @@ def ms_data_processor(filename, ms1_scan_no, filetype:str, maximal_error:int):
     ms1scans_lock_mass_list = list(set(ms1scans_lock_mass_list))
     lock_mass_ms1 = []
     ft = 0 if filetype == 'mzml' else 1
-    for i in tqdm(range(ft, int(total_spectra)), desc=filename):
+    total_spectra = int(total_spectra) + 1
+    for i in tqdm(range(ft, total_spectra), desc=filename):
         # look if is in lock mass list
         if str(i) in ms1scans_lock_mass_list:
             continue
@@ -46,3 +47,4 @@ def ms_data_processor(filename, ms1_scan_no, filetype:str, maximal_error:int):
     highest_rank = (max(ms2_rank, key=ms2_rank.get), ms2_rank[max(ms2_rank, key=ms2_rank.get)])
     # returns dictionnary{scannum:bon mz}, error, rank
     return ms2_result, highest_error, highest_rank, ms_data[0]
+
