@@ -15,8 +15,6 @@ The value for 332.2201 is 332.2430, for 337.1059 is 337.1240 and for 843.3971 is
 ## Instruments concerned
 The instruments where this problem is observed are:
 
-Water Synapt G2Si - 50-800 ppm
-
 Bruker Impact II - 50-70 ppm
 
 
